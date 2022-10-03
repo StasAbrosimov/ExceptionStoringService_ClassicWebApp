@@ -1,12 +1,14 @@
 ﻿using ExceptionStoringServiceClassicWebApp.Exstensions;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExceptionStoringServiceClassicWebApp.Models.DataModels
 {
-    public class ExeptionDataRecord
+    public class ExeptionData
     {
-        public long ExeptionId { get; set; }
-        public string? Name { get; set; }
-        public string? StackTrase { get; set; }
+        public long ExeptionDataId { get; set; }
+        public string? ExeptionType { get; set; }
+        public string? ExeptionStackTrase { get; set; }
         public int StackTraseHash { get; set; }
 
         public string? SeriaizedData { get; set; }
@@ -24,13 +26,16 @@ namespace ExceptionStoringServiceClassicWebApp.Models.DataModels
 
         public string? StackTrace { get; set; }
         public int StackTraceHash { get; set; }
+        public int InnerExeptionId { get; set; }
 
         public string? TargetSite { get; set; }
         public int? TargetSiteHash { get; set; }
 
         public int AppId { get; set; }
+        public AppInfo App { get; set; }
         public int AppVersionId { get; set; }
-        
+        public AppVersion AppVersion { get; set; }
+
         public void UpdateHashes()
         {
             
